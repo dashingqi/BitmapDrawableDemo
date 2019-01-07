@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.util.LruCache;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,7 @@ import java.util.HashSet;
  * <p>版本号：1<p>
  */
 public class PhotoWallAdapter extends ArrayAdapter<String> {
+    private static final String TAG = "PhotoWallAdapter";
 
     private GridView mPhotoWall;
     private final LruCache<String, Bitmap> mMemoryCache;
@@ -138,8 +140,9 @@ public class PhotoWallAdapter extends ArrayAdapter<String> {
      */
     public void loadBitmaps(ImageView imageView, String imageUrl) {
         try {
-
+            //先从内存缓存中获取一下数据
             Bitmap bitmap = getBitmapFromMemoryCache(imageUrl);
+            //没有从内存缓存中获取到数据
             if (bitmap == null) {
                 //就开启异步任务去下载
                 BitmapWorkerTask task = new BitmapWorkerTask();
@@ -321,6 +324,7 @@ public class PhotoWallAdapter extends ArrayAdapter<String> {
             try {
                 //先从磁盘中查找
                 String imageKey = hashKeyForDisk(imageUrl);
+                Log.i(TAG, "doInBackground: " + imageKey);
                 DiskLruCache.Snapshot snapshot = mDiskLruCache.get(imageKey);
                 if (snapshot == null) {
                     DiskLruCache.Editor edit = mDiskLruCache.edit(imageKey);
