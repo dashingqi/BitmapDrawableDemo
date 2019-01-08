@@ -1,1 +1,1 @@
-include ':app', ':disklrucachedemo', ':photowalldemo', ':myphotowalldemo', ':mudisklrucacheandlrucachedemo'
+include ':app', ':disklrucachedemo', ':photowalldemo', ':myphotowalldemo', ':mudisklrucacheandlrucachedemo', ':getviewtreeobserverdemo'
