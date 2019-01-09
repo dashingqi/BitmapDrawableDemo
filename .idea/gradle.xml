@@ -9,11 +9,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/bitmapmemorydemo" />
             <option value="$PROJECT_DIR$/disklrucachedemo" />
             <option value="$PROJECT_DIR$/getviewtreeobserverdemo" />
             <option value="$PROJECT_DIR$/mudisklrucacheandlrucachedemo" />
             <option value="$PROJECT_DIR$/myphotowalldemo" />
             <option value="$PROJECT_DIR$/photowalldemo" />
+            <option value="$PROJECT_DIR$/secondphotowallsdemo" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
